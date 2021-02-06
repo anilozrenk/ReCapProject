@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,7 @@ namespace DataAccess.Concrete.InMemory
 
         public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
-            return _cars
+            return _cars;
         }
 
         public List<Car> GetByBrandId(int id)
@@ -59,7 +60,11 @@ namespace DataAccess.Concrete.InMemory
         {
             return _cars.Where(c => c.Id == id).ToList(); 
         }
-            
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            throw new NotImplementedException();
+        }
 
         public void Update(Car entity)
         {
