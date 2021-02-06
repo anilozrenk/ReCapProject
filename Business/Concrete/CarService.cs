@@ -13,9 +13,30 @@ namespace Business.Concrete
     {
         ICarDal _carDal;
 
+        
+
         public CarService(ICarDal carDal)
         {
             _carDal = carDal;
+        }
+
+        public void Add(Car car)
+        {
+            if (car.Description.Length>1)
+            {
+                if (car.DailyPrice>0)
+                {
+                    _carDal.Add(car);
+                }
+                else
+                {
+                    Console.WriteLine("Dialy price must be greater than 0");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Not allowed to enter less than 2 character");      
+            }
         }
 
         public List<Car> GetAll()
