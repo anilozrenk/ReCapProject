@@ -35,27 +35,4 @@ namespace DataAccess.Concrete.EntityFramework
                 return result.ToList();
             }
         }
-            {
-                return context.Set<Car>().SingleOrDefault(filter);
-            }
-        }
-
-        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
-        {
-            using (Context context = new Context())
-            {
-                return filter == null ? context.Set<Car>().ToList() : context.Set<Car>().Where(filter).ToList();
-            }
-        }       
-
-        public void Update(Car entity)
-        {
-            using (Context context = new Context())
-            {
-                var updatedEntity = context.Entry(entity);
-                updatedEntity.State = EntityState.Modified;
-                context.SaveChanges();
-            }
-        }
-    }
-}
+    }            
