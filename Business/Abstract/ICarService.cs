@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Business.Abstract
 {
-    interface ICarService
+    public interface ICarService
     {
         IResult Add(Car car);
         IDataResult<List<Car>> GetById(int id);

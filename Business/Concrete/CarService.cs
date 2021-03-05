@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 
 using Business.Constants;
+using Core.Aspects.Autofac.Validation;
+using Business.ValidationRules.FluentValidation;
 
 namespace Business.Concrete
 {
@@ -24,17 +26,17 @@ namespace Business.Concrete
         {
             _carDal = carDal;
         }
-
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-            if (car.Description.Length<2)
-            {
-                if (car.DailyPrice<0)
-                {
-                    return new ErrorResult(Messages.CarPriceInvalid);
-                }
-                return new ErrorResult(Messages.CarNameInvalid);
-            }          
+            //if (car.Description.Length<2)
+            //{
+            //    if (car.DailyPrice<0)
+            //    {
+            //        return new ErrorResult(Messages.CarPriceInvalid);
+            //    }
+            //    return new ErrorResult(Messages.CarNameInvalid);
+            //}          
             _carDal.Add(car);
             return new SuccessResult(Messages.CarAdded);
         }

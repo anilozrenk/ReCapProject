@@ -1,6 +1,6 @@
 ﻿using Core.DataAccess.EntityFramework;
+using Core.Entities;
 using DataAccess.Concrete.EntityFramework;
-using Entities.Abstract;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public class EfGeneral<T> : IEntityRepository<T> where T : class, IEntities, new()
+    public class EfGeneral<T> : IEntityRepository<T> where T : class, IEntity, new()
     {
         public void Add(T entity)
         {
