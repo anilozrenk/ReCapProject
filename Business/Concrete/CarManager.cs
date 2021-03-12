@@ -15,14 +15,14 @@ using Business.ValidationRules.FluentValidation;
 
 namespace Business.Concrete
 {
-    public class CarService : ICarService
+    public class CarManager : ICarService
 
     {
         ICarDal _carDal;
 
         
 
-        public CarService(ICarDal carDal)
+        public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
         }
